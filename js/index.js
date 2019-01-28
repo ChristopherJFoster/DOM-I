@@ -116,3 +116,32 @@ mainContentPsArray.forEach(function(element, index) {
 
 const mainContentImage = document.getElementById("middle-img");
 mainContentImage.src = siteContent["main-content"]["middle-img-src"];
+
+// contact
+
+const contactH4 = (document.querySelector(".contact h4").textContent =
+  siteContent.contact["contact-h4"]); // Might as well use dot chaining at least once...
+
+const contactPs = document.querySelectorAll(".contact p");
+const contactPsArray = Array.from(contactPs);
+console.log(contactPsArray);
+contactPsArray.forEach(function(element, index) {
+  switch (index) {
+    case 0:
+      element.textContent = siteContent.contact.address;
+      break;
+    case 1:
+      element.textContent = siteContent.contact.phone;
+      break;
+    case 2:
+      element.textContent = siteContent.contact.email;
+      break;
+    default:
+      console.log("Something has gone wrong...");
+  }
+});
+
+// footer
+
+const footer = document.querySelector("footer p");
+footer.textContent = siteContent.footer.copyright;
