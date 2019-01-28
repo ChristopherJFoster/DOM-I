@@ -46,9 +46,18 @@ const siteContent = {
 const logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
-const anchorSelector = document.querySelectorAll("a");
-const anchorArray = Array.from(anchorSelector);
-anchorArray.forEach(
+const navAnchorsSelector = document.querySelectorAll("a");
+const navAnchorsArray = Array.from(navAnchorsSelector);
+navAnchorsArray.forEach(
   (element, index) =>
     (element.textContent = siteContent.nav[`nav-item-${index + 1}`])
 );
+
+const ctaH1 = document.querySelector(".cta-text h1");
+ctaH1.textContent = siteContent.cta.h1;
+
+const ctaButton = document.querySelector("button");
+ctaButton.textContent = siteContent.cta.button;
+
+const ctaImage = document.getElementById("cta-img");
+ctaImage.src = siteContent.cta["img-src"];
