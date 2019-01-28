@@ -45,3 +45,10 @@ const siteContent = {
 // Example: Update the img src for the logo
 const logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
+
+const anchorSelector = document.querySelectorAll("a");
+const anchorArray = Array.from(anchorSelector);
+anchorArray.forEach(
+  (element, index) =>
+    (element.textContent = siteContent.nav[`nav-item-${index + 1}`])
+);
