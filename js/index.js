@@ -46,13 +46,15 @@ const siteContent = {
 const logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
+// nav <a>s
 const navAnchorsSelector = document.querySelectorAll("a");
 const navAnchorsArray = Array.from(navAnchorsSelector);
 navAnchorsArray.forEach(
   (element, index) =>
     (element.textContent = siteContent.nav[`nav-item-${index + 1}`])
-);
+); // Might as well loop through if you can...
 
+// cta
 const ctaH1 = document.querySelector(".cta-text h1");
 ctaH1.textContent = siteContent.cta.h1;
 
@@ -61,3 +63,56 @@ ctaButton.textContent = siteContent.cta.button;
 
 const ctaImage = document.getElementById("cta-img");
 ctaImage.src = siteContent.cta["img-src"];
+
+// main-content
+const mainContentH4s = document.querySelectorAll(".main-content h4");
+const mainContentH4sArray = Array.from(mainContentH4s);
+mainContentH4sArray.forEach(function(element, index) {
+  switch (index) {
+    case 0:
+      element.textContent = siteContent["main-content"]["features-h4"];
+      break;
+    case 1:
+      element.textContent = siteContent["main-content"]["about-h4"];
+      break;
+    case 2:
+      element.textContent = siteContent["main-content"]["services-h4"];
+      break;
+    case 3:
+      element.textContent = siteContent["main-content"]["product-h4"];
+      break;
+    case 4:
+      element.textContent = siteContent["main-content"]["vision-h4"];
+      break;
+    default:
+      console.log("Something has gone wrong...");
+  }
+}); // Excited to get the switch working...
+
+const mainContentPs = document.querySelectorAll(".main-content p");
+const mainContentPsArray = Array.from(mainContentPs);
+console.log(mainContentPsArray);
+mainContentPsArray.forEach(function(element, index) {
+  switch (index) {
+    case 0:
+      element.textContent = siteContent["main-content"]["features-content"];
+      break;
+    case 1:
+      element.textContent = siteContent["main-content"]["about-content"];
+      break;
+    case 2:
+      element.textContent = siteContent["main-content"]["services-content"];
+      break;
+    case 3:
+      element.textContent = siteContent["main-content"]["product-content"];
+      break;
+    case 4:
+      element.textContent = siteContent["main-content"]["vision-content"];
+      break;
+    default:
+      console.log("Something has gone wrong...");
+  }
+});
+
+const mainContentImage = document.getElementById("middle-img");
+mainContentImage.src = siteContent["main-content"]["middle-img-src"];
