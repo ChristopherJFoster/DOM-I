@@ -47,12 +47,26 @@ const logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
 // nav <a>s
-const navAnchorsSelector = document.querySelectorAll("a");
-const navAnchorsArray = Array.from(navAnchorsSelector);
+const navAnchors = document.querySelectorAll("a");
+const navAnchorsArray = Array.from(navAnchors);
 navAnchorsArray.forEach(
   (element, index) =>
     (element.textContent = siteContent.nav[`nav-item-${index + 1}`])
 ); // Might as well loop through if you can...
+
+// appendChild() and prepend()
+const append = document.createElement("a");
+append.textContent = "Append";
+const prepend = document.createElement("a");
+prepend.textContent = "Prepend";
+const nav = document.getElementsByTagName("nav");
+nav[0].appendChild(append);
+nav[0].prepend(prepend);
+
+// turn nav text green
+const updatedNavAnchors = nav[0].children;
+const updatedNavAnchorsArray = Array.from(updatedNavAnchors);
+updatedNavAnchorsArray.forEach(element => (element.style.color = "green"));
 
 // cta
 const ctaH1 = document.querySelector(".cta-text h1");
@@ -91,7 +105,6 @@ mainContentH4sArray.forEach(function(element, index) {
 
 const mainContentPs = document.querySelectorAll(".main-content p");
 const mainContentPsArray = Array.from(mainContentPs);
-console.log(mainContentPsArray);
 mainContentPsArray.forEach(function(element, index) {
   switch (index) {
     case 0:
@@ -124,7 +137,6 @@ const contactH4 = (document.querySelector(".contact h4").textContent =
 
 const contactPs = document.querySelectorAll(".contact p");
 const contactPsArray = Array.from(contactPs);
-console.log(contactPsArray);
 contactPsArray.forEach(function(element, index) {
   switch (index) {
     case 0:
