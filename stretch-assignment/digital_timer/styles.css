@@ -1,14 +1,53 @@
+@font-face {
+  font-family: "digital-7_monomono";
+  src: url(fonts/webfontkit-20190129-014135/digital-7_mono-webfont.woff2)
+      format("woff2"),
+    url(fonts/webfontkit-20190129-014135/digital-7_mono-webfont.woff)
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   display: flex;
+  background-color: rgba(0, 0, 0, 0.911);
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "digital-7_monomono", monospace;
 }
 
 .digit {
   display: inline-block;
-  font-size: 80px;
+  color: red;
+  font-size: 550px;
 }
 
-.redDigit {
-  color: red;
+#big-div {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#button-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-family: "digital-7_monomono", monospace;
+  font-size: 100px;
+  width: 50%;
+  letter-spacing: 6px;
+  margin-top: 50px;
+  padding: 30px 15px;
+  border-radius: 45px;
+  border: 3px solid rgb(58, 128, 128);
+  color: rgb(58, 128, 128);
+  background-color: rgb(175, 235, 235);
+}
+
+:focus {
+  outline: none;
 }
