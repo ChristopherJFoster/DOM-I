@@ -1,8 +1,9 @@
 const msTens = document.getElementById("msTens");
 const msHundreds = document.getElementById("msHundreds");
-const colon = document.getElementById("colon");
 const secondOnes = document.getElementById("secondOnes");
 const secondTens = document.getElementById("secondTens");
+const digits = document.getElementsByClassName("digit");
+const digitsArray = Array.from(digits);
 
 let counterA = 0;
 let counterB = 0;
@@ -34,6 +35,7 @@ function tick() {
         counterC -= 9;
         secondOnes.textContent = counterC;
         secondTens.textContent = 1;
+        digitsArray.forEach(element => (element.style.color = "red"));
         clearInterval(timer);
       }
     }
