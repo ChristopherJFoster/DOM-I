@@ -22,6 +22,7 @@ buttonElement.addEventListener("click", function(event) {
     msTens.style.color = "black";
     msHundreds.textContent = "-";
     msHundreds.style.color = "black";
+    colon.style.color = "black";
     secondOnes.textContent = "-";
     secondOnes.style.color = "black";
     secondTens.textContent = "-";
