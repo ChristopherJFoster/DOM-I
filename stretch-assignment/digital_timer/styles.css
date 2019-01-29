@@ -1,14 +1,33 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Comic Sans MS";
 }
 
 .digit {
   display: inline-block;
-  font-size: 80px;
+  font-size: 450px;
 }
 
-.redDigit {
-  color: red;
+#big-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#button-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  position: absolute;
+  top: 900px;
+  font-family: "Comic Sans MS";
+  font-size: 5em;
+  width: 40%;
+  padding: 40px;
+  border-radius: 45px;
 }

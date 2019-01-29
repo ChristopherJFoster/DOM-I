@@ -9,7 +9,9 @@ const digitsArray = Array.from(digits);
 let counterA = 0;
 let counterB = 0;
 let counterC = 0;
+
 const timer = setInterval(tick, 10);
+
 function tick() {
   if (counterC === 0 && counterB === 0 && counterA === 0) {
     msTens.textContent = 0;
@@ -46,7 +48,7 @@ function tick() {
 
 const ending = function() {
   digitsArray.forEach(element => (element.style.color = "red"));
-  digitsArray.forEach(element => (element.style.fontSize = "700px"));
+  digitsArray.forEach(element => (element.style.fontSize = "600px"));
   clearInterval(timer);
 };
 
