@@ -1,37 +1,41 @@
-let count = 0;
+const msTens = document.getElementById("msTens");
+const msHundreds = document.getElementById("msHundreds");
+const colon = document.getElementById("colon");
+const secondOnes = document.getElementById("secondOnes");
+const secondTens = document.getElementById("secondTens");
 
+let counterA = 0;
+let counterB = 0;
+let counterC = 0;
 const timer = setInterval(tick, 10);
-
-const ten = function() {
-  console.log("TEST");
-};
-const hundred = function() {
-  console.log("TESTER");
-};
-const thousand = function() {
-  console.log("TESTERER");
-};
-const tenThousand = function() {
-  console.log("TESTERERER");
-  clearInterval(timer);
-};
-
 function tick() {
-  count += 10;
-  console.log(count);
-  if (Number.isInteger(count / 10000) === true) {
-    ten();
-    hundred();
-    thousand();
-    tenThousand();
-  } else if (Number.isInteger(count / 1000) === true) {
-    ten();
-    hundred();
-    thousand();
-  } else if (Number.isInteger(count / 100) === true) {
-    ten();
-    hundred();
-  } else if (Number.isInteger(count / 10) === true) {
-    ten();
+  if (counterC === 0 && counterB === 0 && counterA === 0) {
+    msTens.textContent = 0;
+    msHundreds.textContent = 0;
+    secondOnes.textContent = 0;
+    secondTens.textContent = 0;
+  }
+  if (counterA !== 9) {
+    counterA += 1;
+    msTens.textContent = counterA;
+  } else {
+    counterA -= 9;
+    msTens.textContent = counterA;
+    if (counterB !== 9) {
+      counterB += 1;
+      msHundreds.textContent = counterB;
+    } else {
+      counterB -= 9;
+      msHundreds.textContent = counterB;
+      if (counterC !== 9) {
+        counterC += 1;
+        secondOnes.textContent = counterC;
+      } else {
+        counterC -= 9;
+        secondOnes.textContent = counterC;
+        secondTens.textContent = 1;
+        clearInterval(timer);
+      }
+    }
   }
 }
