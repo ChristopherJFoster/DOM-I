@@ -1,5 +1,6 @@
 body {
   display: flex;
+  background-color: rgba(0, 0, 0, 0.911);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -8,6 +9,7 @@ body {
 
 .digit {
   display: inline-block;
+  color: red;
   letter-spacing: -50px;
   font-size: 550px;
 }

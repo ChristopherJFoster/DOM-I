@@ -19,14 +19,9 @@ buttonElement.addEventListener("click", function(event) {
     // If the button was in the "<<< Again? >>>" state, this will reset the digits to black dashes and reset the button.
     buttonState = 0;
     msTens.textContent = "-";
-    msTens.style.color = "black";
     msHundreds.textContent = "-";
-    msHundreds.style.color = "black";
-    colon.style.color = "black";
     secondOnes.textContent = "-";
-    secondOnes.style.color = "black";
     secondTens.textContent = "-";
-    secondTens.style.color = "black";
     buttonElement.textContent = "Taste the Rainbow";
   }
 });
