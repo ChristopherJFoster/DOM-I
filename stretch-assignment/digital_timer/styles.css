@@ -3,15 +3,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Comic Sans MS";
+  font-family: "Share Tech Mono", monospace;
 }
 
 .digit {
   display: inline-block;
-  font-size: 450px;
+  letter-spacing: -50px;
+  font-size: 550px;
 }
 
 #big-div {
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -23,11 +25,16 @@ body {
 }
 
 button {
-  position: absolute;
-  top: 900px;
-  font-family: "Comic Sans MS";
-  font-size: 5em;
-  width: 40%;
-  padding: 40px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 70px;
+  width: 45%;
+  padding: 30px 15px;
   border-radius: 45px;
+  border: 3px solid rgb(58, 128, 128);
+  color: rgb(58, 128, 128);
+  background-color: rgb(175, 235, 235);
+}
+
+:focus {
+  outline: none;
 }

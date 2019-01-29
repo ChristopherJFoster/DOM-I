@@ -5,28 +5,51 @@ const secondOnes = document.getElementById("secondOnes");
 const secondTens = document.getElementById("secondTens");
 const digits = document.getElementsByClassName("digit");
 const digitsArray = Array.from(digits);
+const buttonElement = document.getElementById("btn");
+
+let timer = ""; // If this is inside the EventListener, then the clearInterval() (see ending(), below) cannot see it.
+let buttonState = 0; // Allows two button states
+
+buttonElement.addEventListener("click", function(event) {
+  if (buttonState === 0) {
+    buttonState = 1;
+    timer = setInterval(tick, 10);
+    buttonElement.style.visibility = "hidden"; // Timer function can sort of stack on itself if the button is pressed repeatedly. Hiding the button prevents this (and looks pretty good, also).
+  } else {
+    // If the button was in the "<<< Again? >>>" state, this will reset the digits to black dashes and reset the button.
+    buttonState = 0;
+    msTens.textContent = "-";
+    msTens.style.color = "black";
+    msHundreds.textContent = "-";
+    msHundreds.style.color = "black";
+    secondOnes.textContent = "-";
+    secondOnes.style.color = "black";
+    secondTens.textContent = "-";
+    secondTens.style.color = "black";
+    buttonElement.textContent = "Taste the Rainbow";
+  }
+});
 
 let counterA = 0;
 let counterB = 0;
 let counterC = 0;
 
-const timer = setInterval(tick, 10);
-
 function tick() {
   if (counterC === 0 && counterB === 0 && counterA === 0) {
+    // Sets all the dashes to zeroes when the timer starts.
     msTens.textContent = 0;
     msHundreds.textContent = 0;
     secondOnes.textContent = 0;
     secondTens.textContent = 0;
   }
   if (counterA !== 9) {
+    // If 0-8, count up by 1; IF 9, go back to 0.
     counterA += 1;
     msTens.textContent = counterA;
   } else {
     counterA -= 9;
     msTens.textContent = counterA;
-    rainbow();
-    resize();
+    rainbow(); // See function below
     if (counterB !== 9) {
       counterB += 1;
       msHundreds.textContent = counterB;
@@ -47,12 +70,14 @@ function tick() {
 }
 
 const ending = function() {
-  digitsArray.forEach(element => (element.style.color = "red"));
-  digitsArray.forEach(element => (element.style.fontSize = "600px"));
-  clearInterval(timer);
+  digitsArray.forEach(element => (element.style.color = "red")); // Turns final numbers red
+  clearInterval(timer); // Stops timer function
+  buttonElement.textContent = "<<< Again? >>>"; // Changes button text and makes button visible again
+  buttonElement.style.visibility = "visible";
 };
 
 const rainbow = function() {
+  // Randomly changes the color of each visible element
   msTens.style.color = htmlColors[Math.floor(Math.random() * 139)];
   msHundreds.style.color = htmlColors[Math.floor(Math.random() * 139)];
   colon.style.color = htmlColors[Math.floor(Math.random() * 139)];
@@ -60,15 +85,8 @@ const rainbow = function() {
   secondTens.style.color = htmlColors[Math.floor(Math.random() * 139)];
 };
 
-const resize = function() {
-  msTens.style.fontSize = `${Math.floor(Math.random() * 299 + 300)}px`;
-  msHundreds.style.fontSize = `${Math.floor(Math.random() * 299 + 300)}px`;
-  colon.style.fontSize = `${Math.floor(Math.random() * 299 + 300)}px`;
-  secondOnes.style.fontSize = `${Math.floor(Math.random() * 299 + 300)}px`;
-  secondTens.style.fontSize = `${Math.floor(Math.random() * 299 + 300)}px`;
-};
-
 const htmlColors = [
+  // All 140 named HTML/CSS colors
   "AliceBlue",
   "AntiqueWhite",
   "Aqua",
